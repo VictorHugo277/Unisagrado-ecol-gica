@@ -1,1 +1,1057 @@
-# Unisagrado-ecol-gica
+# <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EcoConsciente Unisagrado</title>
+
+<style>
+
+:root{
+  --red:#9f1d1d;
+  --red-dark:#7d1717;
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#555;
+  --card:#ffffff;
+  --surface:#f5f5f5;
+  --border:#e7e7e7;
+}
+
+body.dark{
+  --bg:#111111;
+  --text:#f5f5f5;
+  --muted:#d0d0d0;
+  --card:#1c1c1c;
+  --surface:#181818;
+  --border:#2b2b2b;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
+}
+
+header{
+  background:var(--red);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 15px rgba(0,0,0,.15);
+}
+
+.header-container{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo-area img{
+  width:58px;
+  height:58px;
+  background:white;
+  border-radius:50%;
+  padding:5px;
+  object-fit:contain;
+}
+
+.logo-text h1{
+  font-size:1.2rem;
+}
+
+.logo-text p{
+  opacity:.9;
+  font-size:.9rem;
+}
+
+.dark-btn{
+  border:none;
+  background:rgba(255,255,255,.15);
+  color:white;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:1rem;
+}
+
+.hero{
+  max-width:1200px;
+  margin:auto;
+  padding:45px 20px 20px;
+  text-align:center;
+}
+
+.tag{
+  background:var(--red);
+  color:white;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  margin-bottom:20px;
+  font-weight:bold;
+}
+
+.hero h2{
+  font-size:clamp(2rem,4vw,3.4rem);
+  color:var(--red);
+  margin-bottom:20px;
+  line-height:1.08;
+}
+
+.hero p{
+  max-width:950px;
+  margin:auto;
+  line-height:1.9;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+.banner{
+  margin-top:35px;
+  height:280px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.banner::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,.08));
+}
+
+.banner-text{
+  position:absolute;
+  left:20px;
+  bottom:20px;
+  z-index:1;
+  color:white;
+  text-align:left;
+  max-width:650px;
+}
+
+.banner-text h3{
+  font-size:1.6rem;
+  margin-bottom:8px;
+}
+
+.banner-text p{
+  color:white;
+  line-height:1.6;
+}
+
+.info{
+  background:var(--surface);
+  padding:80px 20px;
+  text-align:center;
+}
+
+.info h2{
+  color:var(--red);
+  font-size:2.5rem;
+  margin-bottom:20px;
+  line-height:1.1;
+}
+
+.info p{
+  max-width:980px;
+  margin:auto;
+  line-height:1.95;
+  color:var(--muted);
+  margin-bottom:20px;
+  font-size:1.05rem;
+}
+
+.search-box{
+  max-width:700px;
+  margin:40px auto 0;
+}
+
+.search-box input{
+  width:100%;
+  padding:16px 18px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  font-size:1rem;
+}
+
+.cards{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px 70px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card-header{
+  padding:24px;
+  color:white;
+  cursor:pointer;
+  width:100%;
+  border:none;
+  text-align:left;
+}
+
+.card-header span{
+  font-size:3rem;
+  display:block;
+  margin-bottom:12px;
+}
+
+.card-header h3{
+  font-size:1.45rem;
+}
+
+.card-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s ease;
+}
+
+.card.active .card-body{
+  max-height:2500px;
+}
+
+.card-content{
+  padding:22px;
+}
+
+.card-content h4{
+  color:var(--red);
+  margin-top:14px;
+  margin-bottom:8px;
+}
+
+.card-content p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:10px;
+}
+
+.ods-cards{
+  max-width:1000px;
+  margin:35px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.ods-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+.ods-card h3{
+  color:var(--red);
+  margin-bottom:8px;
+  font-size:1.4rem;
+}
+
+.ods-card p{
+  margin:0;
+}
+
+.ods-image{
+  max-width:900px;
+  margin:40px auto 0;
+  overflow:hidden;
+  border-radius:24px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.ods-image img{
+  width:100%;
+  display:block;
+}
+
+.decomposition{
+  max-width:1100px;
+  margin:40px auto 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.decomposition-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+}
+
+.decomposition-card h3{
+  color:var(--red);
+  margin-bottom:10px;
+}
+
+footer{
+  background:var(--red);
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+}
+
+footer p{
+  margin-top:10px;
+  opacity:.9;
+  line-height:1.6;
+}
+
+.top-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:var(--red);
+  color:white;
+  border:none;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,0,0,.2);
+}
+
+@media(max-width:768px){
+
+  .header-container{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .banner{
+    height:220px;
+  }
+
+  .banner-text h3{
+    font-size:1.2rem;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header-container">
+
+<div class="logo-area">
+
+<img src="logo.png">
+
+<div class="logo-text">
+<h1>EcoConsciente Unisagrado</h1>
+<p>Sustentabilidade e descarte consciente</p>
+</div>
+
+</div>
+
+<button class="dark-btn" onclick="toggleDark()">
+🌙 Modo escuro
+</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="tag">
+Educação ambiental e sustentabilidade
+</div>
+
+<h2>
+Descarte correto e responsabilidade ambiental
+</h2>
+
+<p>
+A separação adequada dos resíduos é essencial para reduzir impactos ambientais, proteger recursos naturais e incentivar práticas sustentáveis dentro e fora da universidade. Pequenas atitudes possuem grande impacto coletivo e ajudam diretamente na preservação do meio ambiente.
+</p>
+
+<div class="banner">
+
+<img src="banner.jpg">
+
+<div class="banner-text">
+
+<h3>
+Sustentabilidade começa nas escolhas diárias
+</h3>
+
+<p>
+O descarte correto reduz a poluição, melhora a reciclagem e ajuda a preservar recursos naturais para as próximas gerações.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="info">
+
+<h2>
+Sobre o projeto
+</h2>
+
+<p>
+O EcoConsciente Unisagrado é um projeto voltado à conscientização ambiental e ao incentivo de práticas sustentáveis dentro do ambiente universitário. O objetivo principal é informar sobre o descarte correto de diferentes tipos de resíduos e destacar como pequenas atitudes podem gerar impactos positivos para o meio ambiente e para a sociedade.
+</p>
+
+<p>
+Muitos materiais descartados incorretamente podem contaminar o solo, a água e comprometer a saúde pública. Ao mesmo tempo, diversos resíduos possuem potencial de reaproveitamento e reciclagem quando encaminhados corretamente.
+</p>
+
+<p>
+Através deste site, busca-se promover educação ambiental de forma acessível, prática e objetiva, incentivando hábitos mais conscientes e sustentáveis no cotidiano acadêmico e pessoal.
+</p>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Pesquisar resíduo...">
+</div>
+
+</section>
+
+<section class="cards" id="cardsContainer">
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#34d399,#15803d)">
+
+<span>🔋</span>
+<h3>Pilhas e Baterias</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Por que o descarte correto é importante?</h4>
+
+<p>
+Pilhas e baterias contêm metais pesados e substâncias químicas altamente poluentes, como chumbo, mercúrio e cádmio. Quando descartadas incorretamente, essas substâncias podem infiltrar-se no solo e contaminar lençóis freáticos.
+</p>
+
+<p>
+Além do impacto ambiental, o descarte inadequado também oferece riscos à saúde humana e aos trabalhadores responsáveis pela coleta dos resíduos.
+</p>
+
+<h4>Como ocorre o reaproveitamento?</h4>
+
+<p>
+Após a coleta, os materiais passam por processos especializados de separação química e mecânica. Parte dos metais pode ser reutilizada na fabricação de novos produtos industriais.
+</p>
+
+<h4>Descarte correto</h4>
+
+<p>
+A universidade possui ponto de coleta específico para pilhas e baterias.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#facc15,#ea580c)">
+
+<span>🛢️</span>
+<h3>Óleo de Cozinha</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Impactos ambientais</h4>
+
+<p>
+O óleo descartado incorretamente pode contaminar grandes volumes de água e prejudicar a oxigenação de rios e lagos.
+</p>
+
+<p>
+Quando jogado na pia, também provoca entupimentos e aumenta os custos de tratamento de esgoto.
+</p>
+
+<h4>Reaproveitamento</h4>
+
+<p>
+Pode ser transformado em biodiesel, sabão e outros produtos reutilizáveis.
+</p>
+
+<h4>Descarte correto</h4>
+
+<p>
+Armazene o óleo frio em garrafas PET bem fechadas antes da coleta.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#38bdf8,#2563eb)">
+
+<span>💻</span>
+<h3>Eletrônicos</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Por que exige atenção?</h4>
+
+<p>
+Equipamentos eletrônicos possuem componentes químicos e metais que não devem ser descartados junto ao lixo comum.
+</p>
+
+<p>
+O crescimento do consumo tecnológico torna o descarte correto essencial para reduzir resíduos e desperdícios.
+</p>
+
+<h4>Reaproveitamento</h4>
+
+<p>
+Peças e matérias-primas podem retornar à indústria através da reciclagem especializada.
+</p>
+
+<h4>Orientação importante</h4>
+
+<p>
+Sempre que possível, remova informações pessoais dos aparelhos antes do descarte.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#fb7185,#b91c1c)">
+
+<span>💊</span>
+<h3>Embalagens de Medicamentos</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Riscos ambientais</h4>
+
+<p>
+Medicamentos e embalagens farmacêuticas podem contaminar água e solo quando descartados incorretamente.
+</p>
+
+<p>
+Mesmo embalagens aparentemente vazias podem conter resíduos químicos.
+</p>
+
+<h4>Tratamento adequado</h4>
+
+<p>
+Alguns materiais podem passar por reciclagem após tratamento específico.
+</p>
+
+<h4>Descarte correto</h4>
+
+<p>
+A universidade possui local apropriado para descarte desse tipo de material.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#f472b6,#be185d)">
+
+<span>🏥</span>
+<h3>Lixo Hospitalar</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Por que exige cuidado extremo?</h4>
+
+<p>
+Pode conter materiais biológicos e perfurocortantes capazes de transmitir doenças e causar acidentes graves.
+</p>
+
+<h4>Tratamento especializado</h4>
+
+<p>
+Pode passar por esterilização, incineração controlada e outros processos específicos.
+</p>
+
+<h4>Importância da segregação</h4>
+
+<p>
+A separação correta reduz riscos de contaminação e melhora a segurança sanitária.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#c084fc,#7c3aed)">
+
+<span>🧪</span>
+<h3>Reagentes de Laboratório</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Perigos ambientais</h4>
+
+<p>
+Reagentes laboratoriais podem ser tóxicos, inflamáveis e corrosivos.
+</p>
+
+<p>
+O descarte inadequado pode provocar acidentes químicos e contaminações graves.
+</p>
+
+<h4>Tratamento correto</h4>
+
+<p>
+Cada substância exige protocolos específicos de descarte e tratamento.
+</p>
+
+<h4>Cuidados essenciais</h4>
+
+<p>
+Nunca descarte reagentes em pias ou recipientes inadequados.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+<div class="card">
+
+<button class="card-header"
+onclick="toggleCard(this)"
+style="background:linear-gradient(135deg,#22c55e,#166534)">
+
+<span>♻️</span>
+<h3>Recicláveis Comuns</h3>
+
+</button>
+
+<div class="card-body">
+
+<div class="card-content">
+
+<h4>Por que separar corretamente?</h4>
+
+<p>
+Papel, plástico, vidro e metal possuem grande potencial de reciclagem e reaproveitamento.
+</p>
+
+<p>
+A separação adequada reduz o volume de resíduos enviados para aterros sanitários.
+</p>
+
+<h4>Reaproveitamento</h4>
+
+<p>
+Os materiais recicláveis passam por triagem e transformação em nova matéria-prima.
+</p>
+
+<h4>Descarte correto</h4>
+
+<p>
+Utilize os pontos de coleta seletiva da universidade.
+</p>
+
+</div>
+
+</section> 
+
+</section>
+
+</div>
+
+</div>
+
+<section class="info">
+
+<h2>
+ODS e Sustentabilidade
+</h2>
+
+<p>
+Os Objetivos de Desenvolvimento Sustentável (ODS) são metas globais estabelecidas pela Organização das Nações Unidas (ONU) para promover desenvolvimento sustentável, preservação ambiental, justiça social e melhoria da qualidade de vida.
+</p>
+
+<p>
+As práticas apresentadas neste projeto estão diretamente relacionadas à preservação do meio ambiente, consumo consciente, descarte correto de resíduos e fortalecimento da educação ambiental.
+</p>
+
+<div class="ods-cards">
+
+<div class="ods-card">
+<h3>ODS 1</h3>
+<p>Erradicação da pobreza através de melhores condições sociais e sustentáveis.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 2</h3>
+<p>Combate à fome e incentivo à agricultura sustentável.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 3</h3>
+<p>Promoção da saúde e bem-estar da população.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 4</h3>
+<p>Educação de qualidade e conscientização ambiental.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 5</h3>
+<p>Igualdade de gênero e inclusão social.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 6</h3>
+<p>Proteção da água potável e melhoria do saneamento.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 7</h3>
+<p>Uso de energia limpa e acessível.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 8</h3>
+<p>Trabalho digno e crescimento econômico sustentável.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 9</h3>
+<p>Inovação, indústria sustentável e infraestrutura responsável.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 10</h3>
+<p>Redução das desigualdades sociais.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 11</h3>
+<p>Cidades mais sustentáveis, seguras e resilientes.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 12</h3>
+<p>Consumo e produção responsáveis.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 13</h3>
+<p>Combate às mudanças climáticas.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 14</h3>
+<p>Preservação da vida marinha e dos oceanos.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 15</h3>
+<p>Proteção da vida terrestre e dos ecossistemas.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 16</h3>
+<p>Promoção da paz, justiça e instituições eficazes.</p>
+</div>
+
+<div class="ods-card">
+<h3>ODS 17</h3>
+<p>Parcerias globais para alcançar o desenvolvimento sustentável.</p>
+</div>
+
+</div>
+
+</section>
+<div class="ods-image">
+
+<img src="ods.jpg">
+
+</div>
+
+</section>
+
+<section class="info">
+
+<h2>
+Tempo de decomposição dos resíduos
+</h2>
+
+<p>
+Muitos resíduos descartados incorretamente permanecem no meio ambiente por décadas ou até séculos, causando impactos ambientais prolongados e dificultando a recuperação dos ecossistemas.
+</p>
+
+<div class="decomposition">
+
+<div class="decomposition-card">
+<h3>Pilhas e baterias</h3>
+<p>
+Podem causar contaminação ambiental durante décadas devido aos metais pesados presentes em sua composição.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Óleo de cozinha</h3>
+<p>
+Seu impacto ocorre principalmente pela rápida contaminação da água e do solo quando descartado incorretamente.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Eletrônicos</h3>
+<p>
+Possuem componentes que podem levar centenas de anos para decomposição completa.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Embalagens de medicamentos</h3>
+<p>
+Dependendo do material, podem levar décadas para se decompor e ainda liberar resíduos químicos.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Lixo hospitalar</h3>
+<p>
+Além do risco biológico, alguns materiais podem permanecer no ambiente por muitos anos.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Reagentes laboratoriais</h3>
+<p>
+Algumas substâncias químicas podem permanecer ativas e contaminantes por longos períodos.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Plástico</h3>
+<p>
+Mais de 400 anos para decomposição completa.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Vidro</h3>
+<p>
+Tempo indeterminado de decomposição na natureza.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Lata de alumínio</h3>
+<p>
+Entre 200 e 500 anos para decomposição.
+</p>
+</div>
+
+<div class="decomposition-card">
+<h3>Papel</h3>
+<p>
+De 3 a 6 meses dependendo das condições ambientais.
+</p>
+</div>
+
+</div>
+
+</section>
+
+</section>
+
+<section class="info">
+
+<h2>
+Sustentabilidade e responsabilidade coletiva
+</h2>
+
+<p>
+Sustentabilidade significa utilizar os recursos naturais de maneira consciente, equilibrando desenvolvimento, preservação ambiental e qualidade de vida.
+</p>
+
+<p>
+Separar corretamente os resíduos reduz impactos ambientais, fortalece a reciclagem e contribui para um futuro mais sustentável.
+</p>
+
+<p>
+A conscientização ambiental dentro das universidades possui papel fundamental na formação de cidadãos mais responsáveis e preparados para enfrentar desafios ambientais atuais e futuros.
+</p>
+
+</section>
+
+<footer>
+
+<h2>
+EcoConsciente Unisagrado
+</h2>
+
+<p>
+Projeto universitário voltado à conscientização ambiental e ao descarte correto de resíduos.
+</p>
+
+</footer>
+
+<button class="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+↑
+</button>
+
+<script>
+
+function toggleCard(button){
+
+const card = button.parentElement;
+
+card.classList.toggle("active");
+
+}
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+}
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function(){
+
+const filter = searchInput.value.toLowerCase();
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+const text = card.innerText.toLowerCase();
+
+if(text.includes(filter)){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

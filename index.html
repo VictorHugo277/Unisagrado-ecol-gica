@@ -415,6 +415,62 @@ footer p{
 .card.active .card-icon{
   transform:rotate(90deg);
 }
+  .footer-equipe {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.footer-equipe h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.footer-descricao {
+    color: #f1f1f1;
+    max-width: 850px;
+    margin: 0 auto 35px auto;
+    line-height: 1.6;
+}
+
+.footer-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.footer-card:hover {
+    transform: translateY(-5px);
+}
+
+.footer-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-card p {
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.footer-final {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+}
   
 </style>
 </head>
@@ -1035,8 +1091,49 @@ A conscientização ambiental dentro das universidades possui papel fundamental 
 
 </section>
 
-<footer>
+<footer><div class="footer-equipe">
 
+    <h2>Quem Somos</h2>
+
+    <p class="footer-descricao">
+        Este site foi desenvolvido como parte de um projeto acadêmico de Gestão Ambiental,
+        realizado por estudantes de Engenharia Química, com foco em conscientização ambiental
+        e sustentabilidade.
+    </p>
+
+    <div class="footer-cards">
+
+        <div class="footer-card">
+            <h3>Victor Hugo de Almeida Silva</h3>
+            <p>
+                Estudante de Engenharia Química e participante do projeto de Gestão Ambiental,
+                contribuindo no desenvolvimento do site e na conscientização ambiental.
+            </p>
+        </div>
+
+        <div class="footer-card">
+            <h3>Luis Otávio de Souza Mania</h3>
+            <p>
+                Estudante de Engenharia Química e integrante do projeto de Gestão Ambiental,
+                auxiliando na pesquisa e elaboração do conteúdo do site.
+            </p>
+        </div>
+
+        <div class="footer-card">
+            <h3>Nicolas Tonus</h3>
+            <p>
+                Estudante de Engenharia Química e participante do projeto de Gestão Ambiental,
+                colaborando na construção e organização das informações apresentadas.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<p class="footer-final">
+    EcoConsciente Unisagrado
+</p>
 <h2>
 EcoConsciente Unisagrado
 </h2>

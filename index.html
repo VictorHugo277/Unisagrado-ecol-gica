@@ -202,6 +202,9 @@ header{
   color:var(--muted);
   margin-bottom:20px;
   font-size:1.05rem;
+  text-align:justify;
+  text-indent:30px;
+  
 }
 
 .search-box{
@@ -390,6 +393,22 @@ footer p{
 
 }
 
+.card-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.card-icon{
+  font-size:1.4rem;
+  transition:transform .3s ease;
+}
+
+.card.active .card-icon{
+  transform:rotate(90deg);
+}
+  
 </style>
 </head>
 
@@ -470,7 +489,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#34d399,#15803d)">
 
 <span>🔋</span>
+<div class="card-title">
 <h3>Pilhas e Baterias</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
@@ -514,7 +536,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#facc15,#ea580c)">
 
 <span>🛢️</span>
+<div class="card-title">
 <h3>Óleo de Cozinha</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
@@ -558,7 +583,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#38bdf8,#2563eb)">
 
 <span>💻</span>
+<div class="card-title">
 <h3>Eletrônicos</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
@@ -602,7 +630,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#fb7185,#b91c1c)">
 
 <span>💊</span>
+<div class="card-title">
 <h3>Embalagens de Medicamentos</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
@@ -646,8 +677,11 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#f472b6,#be185d)">
 
 <span>🏥</span>
+<div class="card-title">
 <h3>Lixo Hospitalar</h3>
-
+<span class="card-icon">☰</span>
+</div>
+  
 </button>
 
 <div class="card-body">
@@ -686,7 +720,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#c084fc,#7c3aed)">
 
 <span>🧪</span>
+<div class="card-title">
 <h3>Reagentes de Laboratório</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
@@ -730,7 +767,10 @@ onclick="toggleCard(this)"
 style="background:linear-gradient(135deg,#22c55e,#166534)">
 
 <span>♻️</span>
+<div class="card-title">
 <h3>Recicláveis Comuns</h3>
+<span class="card-icon">☰</span>
+</div>
 
 </button>
 
